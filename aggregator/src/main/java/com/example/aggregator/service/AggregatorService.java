@@ -54,7 +54,6 @@ public class AggregatorService {
     public List<Entry> getAllPalindromes() {
         final List<Entry> candidates = new ArrayList<>();
 
-        // Iterate from a to z
         for (char ch = 'a'; ch <= 'z'; ch++) {
             String c = Character.toString(ch);
 
@@ -70,7 +69,6 @@ public class AggregatorService {
             candidates.addAll(startsAndEndsWith);
         }
 
-        // test each entry for palindrome, sort and return
         List<Entry> palindromes = new ArrayList<>();
         for (Entry entry : candidates) {
             String word = entry.getWord();
@@ -80,7 +78,6 @@ public class AggregatorService {
             }
         }
 
-        // Sort the list of palindromes
         palindromes.sort((e1, e2) -> e1.getWord().compareTo(e2.getWord()));
 
         return palindromes;
