@@ -1,23 +1,19 @@
-package com.example.dictionary.service;
+package com.example.dictionary;
 
-import org.springframework.stereotype.Service;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
-import java.util.List;
-import java.util.stream.Collectors;
+@SpringBootTest
+public class DictionaryApplicationTests {
 
-@Service
-public class DictionaryService {
+    @Autowired
+    private ApplicationContext applicationContext;
 
-    private List<String> words;
-
-    public List<String> getWordsStartingWith(String value) {
-        return words.stream()
-                    .filter(word -> word.startsWith(value))
-                    .collect(Collectors.toList());
-    }
-    public List<String> getWordsEndingWith(String value) {
-        return words.stream()
-                    .filter(word -> word.endsWith(value))
-                    .collect(Collectors.toList());
+    @Test
+    void contextLoads() {
+        assertNotNull(applicationContext, "The application context should have loaded.");
     }
 }
